@@ -15,7 +15,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'paths' => ['api/*'],
+=======
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+>>>>>>> first commit, config proyect whit vue
 
     'allowed_methods' => ['*'],
 

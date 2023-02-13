@@ -1,4 +1,5 @@
 <script setup>
+<<<<<<< HEAD
 import HelloWorld from './components/HelloWorld.vue'
 </script>
 
@@ -27,4 +28,13 @@ import HelloWorld from './components/HelloWorld.vue'
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
+=======
+</script>
+
+<template>
+    <router-view></router-view>
+</template>
+
+<style scoped>
+>>>>>>> first commit, config proyect whit vue
 </style>

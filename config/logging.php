@@ -21,6 +21,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+    | Deprecations Log Channel
+    |--------------------------------------------------------------------------
+    |
+    | This option controls the log channel that should be used to log warnings
+    | regarding deprecated PHP and library features. This allows you to get
+    | your application ready for upcoming major versions of dependencies.
+    |
+    */
+
+    'deprecations' => [
+        'channel' => env('LOG_DEPRECATIONS_CHANNEL', 'null'),
+        'trace' => false,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+>>>>>>> first commit, config proyect whit vue
     | Log Channels
     |--------------------------------------------------------------------------
     |
@@ -44,13 +63,21 @@ return [
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
+<<<<<<< HEAD
             'level' => 'debug',
+=======
+            'level' => env('LOG_LEVEL', 'debug'),
+>>>>>>> first commit, config proyect whit vue
         ],
 
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
+<<<<<<< HEAD
             'level' => 'debug',
+=======
+            'level' => env('LOG_LEVEL', 'debug'),
+>>>>>>> first commit, config proyect whit vue
             'days' => 14,
         ],
 
@@ -59,21 +86,38 @@ return [
             'url' => env('LOG_SLACK_WEBHOOK_URL'),
             'username' => 'Laravel Log',
             'emoji' => ':boom:',
+<<<<<<< HEAD
             'level' => 'critical',
+=======
+            'level' => env('LOG_LEVEL', 'critical'),
+>>>>>>> first commit, config proyect whit vue
         ],
 
         'papertrail' => [
             'driver' => 'monolog',
+<<<<<<< HEAD
             'level' => 'debug',
             'handler' => SyslogUdpHandler::class,
             'handler_with' => [
                 'host' => env('PAPERTRAIL_URL'),
                 'port' => env('PAPERTRAIL_PORT'),
+=======
+            'level' => env('LOG_LEVEL', 'debug'),
+            'handler' => env('LOG_PAPERTRAIL_HANDLER', SyslogUdpHandler::class),
+            'handler_with' => [
+                'host' => env('PAPERTRAIL_URL'),
+                'port' => env('PAPERTRAIL_PORT'),
+                'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
+>>>>>>> first commit, config proyect whit vue
             ],
         ],
 
         'stderr' => [
             'driver' => 'monolog',
+<<<<<<< HEAD
+=======
+            'level' => env('LOG_LEVEL', 'debug'),
+>>>>>>> first commit, config proyect whit vue
             'handler' => StreamHandler::class,
             'formatter' => env('LOG_STDERR_FORMATTER'),
             'with' => [
@@ -83,12 +127,20 @@ return [
 
         'syslog' => [
             'driver' => 'syslog',
+<<<<<<< HEAD
             'level' => 'debug',
+=======
+            'level' => env('LOG_LEVEL', 'debug'),
+>>>>>>> first commit, config proyect whit vue
         ],
 
         'errorlog' => [
             'driver' => 'errorlog',
+<<<<<<< HEAD
             'level' => 'debug',
+=======
+            'level' => env('LOG_LEVEL', 'debug'),
+>>>>>>> first commit, config proyect whit vue
         ],
 
         'null' => [

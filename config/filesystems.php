@@ -13,6 +13,7 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'default' => env('FILESYSTEM_DRIVER', 'local'),
 
     /*
@@ -27,6 +28,9 @@ return [
     */
 
     'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+=======
+    'default' => env('FILESYSTEM_DISK', 'local'),
+>>>>>>> first commit, config proyect whit vue
 
     /*
     |--------------------------------------------------------------------------
@@ -35,7 +39,11 @@ return [
     |
     | Here you may configure as many filesystem "disks" as you wish, and you
     | may even configure multiple disks of the same driver. Defaults have
+<<<<<<< HEAD
     | been setup for each driver as an example of the required options.
+=======
+    | been set up for each driver as an example of the required values.
+>>>>>>> first commit, config proyect whit vue
     |
     | Supported Drivers: "local", "ftp", "sftp", "s3"
     |
@@ -46,6 +54,10 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
+<<<<<<< HEAD
+=======
+            'throw' => false,
+>>>>>>> first commit, config proyect whit vue
         ],
 
         'public' => [
@@ -53,6 +65,10 @@ return [
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
+<<<<<<< HEAD
+=======
+            'throw' => false,
+>>>>>>> first commit, config proyect whit vue
         ],
 
         's3' => [
@@ -63,6 +79,11 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
+<<<<<<< HEAD
+=======
+            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+            'throw' => false,
+>>>>>>> first commit, config proyect whit vue
         ],
 
     ],

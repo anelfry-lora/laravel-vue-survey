@@ -8,25 +8,50 @@ use Throwable;
 class Handler extends ExceptionHandler
 {
     /**
+<<<<<<< HEAD
      * A list of the exception types that are not reported.
      *
      * @var array
+=======
+     * A list of exception types with their corresponding custom log levels.
+     *
+     * @var array<class-string<\Throwable>, \Psr\Log\LogLevel::*>
+     */
+    protected $levels = [
+        //
+    ];
+
+    /**
+     * A list of the exception types that are not reported.
+     *
+     * @var array<int, class-string<\Throwable>>
+>>>>>>> first commit, config proyect whit vue
      */
     protected $dontReport = [
         //
     ];
 
     /**
+<<<<<<< HEAD
      * A list of the inputs that are never flashed for validation exceptions.
      *
      * @var array
      */
     protected $dontFlash = [
+=======
+     * A list of the inputs that are never flashed to the session on validation exceptions.
+     *
+     * @var array<int, string>
+     */
+    protected $dontFlash = [
+        'current_password',
+>>>>>>> first commit, config proyect whit vue
         'password',
         'password_confirmation',
     ];
 
     /**
+<<<<<<< HEAD
      * Report or log an exception.
      *
      * @param  \Throwable  $exception
@@ -51,5 +76,16 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         return parent::render($request, $exception);
+=======
+     * Register the exception handling callbacks for the application.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->reportable(function (Throwable $e) {
+            //
+        });
+>>>>>>> first commit, config proyect whit vue
     }
 }

@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 *.sqlite
 *.sqlite-journal
+=======
+*.sqlite*
+>>>>>>> first commit, config proyect whit vue

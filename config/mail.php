@@ -29,7 +29,11 @@ return [
     | mailers below. You are free to add additional mailers as required.
     |
     | Supported: "smtp", "sendmail", "mailgun", "ses",
+<<<<<<< HEAD
     |            "postmark", "log", "array"
+=======
+    |            "postmark", "log", "array", "failover"
+>>>>>>> first commit, config proyect whit vue
     |
     */
 
@@ -42,7 +46,11 @@ return [
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
+<<<<<<< HEAD
             'auth_mode' => null,
+=======
+            'local_domain' => env('MAIL_EHLO_DOMAIN'),
+>>>>>>> first commit, config proyect whit vue
         ],
 
         'ses' => [
@@ -59,7 +67,11 @@ return [
 
         'sendmail' => [
             'transport' => 'sendmail',
+<<<<<<< HEAD
             'path' => '/usr/sbin/sendmail -bs',
+=======
+            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
+>>>>>>> first commit, config proyect whit vue
         ],
 
         'log' => [
@@ -70,6 +82,17 @@ return [
         'array' => [
             'transport' => 'array',
         ],
+<<<<<<< HEAD
+=======
+
+        'failover' => [
+            'transport' => 'failover',
+            'mailers' => [
+                'smtp',
+                'log',
+            ],
+        ],
+>>>>>>> first commit, config proyect whit vue
     ],
 
     /*

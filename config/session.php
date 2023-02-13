@@ -72,7 +72,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'connection' => env('SESSION_CONNECTION', null),
+=======
+    'connection' => env('SESSION_CONNECTION'),
+>>>>>>> first commit, config proyect whit vue
 
     /*
     |--------------------------------------------------------------------------
@@ -100,7 +104,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'store' => env('SESSION_STORE', null),
+=======
+    'store' => env('SESSION_STORE'),
+>>>>>>> first commit, config proyect whit vue
 
     /*
     |--------------------------------------------------------------------------
@@ -155,7 +163,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'domain' => env('SESSION_DOMAIN', null),
+=======
+    'domain' => env('SESSION_DOMAIN'),
+>>>>>>> first commit, config proyect whit vue
 
     /*
     |--------------------------------------------------------------------------
@@ -164,7 +176,11 @@ return [
     |
     | By setting this option to true, session cookies will only be sent back
     | to the server if the browser has a HTTPS connection. This will keep
+<<<<<<< HEAD
     | the cookie from being sent to you if it can not be done securely.
+=======
+    | the cookie from being sent to you when it can't be done securely.
+>>>>>>> first commit, config proyect whit vue
     |
     */
 

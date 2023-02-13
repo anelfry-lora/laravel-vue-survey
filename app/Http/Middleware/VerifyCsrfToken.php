@@ -9,7 +9,11 @@ class VerifyCsrfToken extends Middleware
     /**
      * The URIs that should be excluded from CSRF verification.
      *
+<<<<<<< HEAD
      * @var array
+=======
+     * @var array<int, string>
+>>>>>>> first commit, config proyect whit vue
      */
     protected $except = [
         //
