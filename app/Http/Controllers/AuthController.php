@@ -73,6 +73,7 @@ class AuthController extends Controller
 
         // Revoke the token that was used to authenticate the current request...
         $user->currentAccessToken()->delete();
+        // $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
 
         return response([
             'success' => true

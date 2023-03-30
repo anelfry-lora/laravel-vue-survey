@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from '../view/DashboardView.vue'
 import Surveys from '../view/SurveysView.vue'
 import SurveyView from '../view/SurveyView.vue'
+import SurveyPublicView from '../view/SurveyPublicView.vue'
 import Login from '../view/LoginView.vue'
 import Register from '../view/RegisterView.vue'
 import DefaultLayout from '../components/DefaultLayout.vue'
@@ -21,6 +22,11 @@ const routes = [
             { path: '/surveys/create', name: 'SurveyCreate', component: SurveyView },
             { path: '/surveys/:id', name: 'SurveyView', component: SurveyView },
         ]
+    },
+    {
+        path: '/view/survey/:slug',
+        name: 'SurveyPublicView',
+        component: SurveyPublicView
     },
     {
         path: '/auth',
@@ -57,8 +63,6 @@ router.beforeEach((to, from, next) => {
     } else {
         next()
     }
-
-
 })
 
 export default router

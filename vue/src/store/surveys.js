@@ -3,34 +3,6 @@ import axiosClient from "../axios";
 
 const store = createStore({
     state: {
-        user: {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            data:{name: 'Katana'},
-            token: null
-=======
-            data: {
-                name: 'Anelfry Lora',
-                email: 'correo@email.com',
-                imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-            },
-            token: 123
->>>>>>> first commit, config proyect whit vue
-        }
-    },
-    getters: {},
-    actions: {},
-<<<<<<< HEAD
-    mutations: {},
-=======
-=======
-            data: {},
-            token: sessionStorage.getItem('TOKEN')
-        },
-        dashboard: {
-            loading: false,
-            data: {}
-        },
         currentSurvey: {
             loading: false,
             data: {}
@@ -49,18 +21,6 @@ const store = createStore({
     },
     getters: {},
     actions: {
-        getDashboardData({ commit }) {
-            commit('dashboardLoading', true);
-            return axiosClient.get(`/dashboard`)
-                .then((res) => {
-                    commit('dashboardLoading', false);
-                    commit('setDashboardData', res.data);
-                    return res;
-                }).catch((error) => {
-                    commit('dashboardLoading', false);
-                    return error
-                });
-        },
         getSurvey({ commit }, id) {
             commit('setCurrentSurveyLoading', true);
             return axiosClient
@@ -111,7 +71,7 @@ const store = createStore({
                 });
         },
         getSurveyBySlug({ commit }, slug) {
-            commit('setCurrentSurveyLoading', true)
+            commit('setSurveysLoading', true)
             return axiosClient.get(`/survey-by-slug/${slug}`)
                 .then((res) => {
                     commit('setCurrentSurveyLoading', false)
@@ -124,53 +84,10 @@ const store = createStore({
         },
         saveSurveyAnswer({ commit }, { surveyId, answers }) {
             return axiosClient.post(`/survey/${surveyId}/answer`, { answers });
-
+            
         },
-        register({ commit }, user) {
-            //AXIOS
-            return axiosClient.post('/register', user)
-                .then(({ data }) => {
-                    commit('setUser', data)
-                    return data;
-                })
-            //FETCH
-            /* return fetch(`http://localhost:8000/api/register`, {
-                headers: {
-                    "content-type": "application/json",
-                    Accept: "application/json"
-                },
-                method: "POST",
-                body: JSON.stringify(user),
-            })
-            .then((res) => res.json())
-            .then((res) => {
-                commit("setUser", res)
-                return res
-            })*/
-        },
-        login({ commit }, user) {
-            return axiosClient.post('/login', user)
-                .then(({ data }) => {
-                    commit('setUser', data)
-                    return data;
-                })
-        },
-        logout({ commit }) {
-            return axiosClient.post('/logout')
-                .then(res => {
-                    commit('logout')
-                    return res;
-                })
-        }
     },
->>>>>>> create surveys form
     mutations: {
-        dashboardLoading: (state, loading) => {
-            state.dashboard.loading = loading;
-        },
-        setDashboardData: (state, data) => {
-            state.dashboard.data = data;
-        },
         setCurrentSurvey: (state, survey) => {
             state.currentSurvey.data = survey.data;
         },
@@ -184,27 +101,6 @@ const store = createStore({
             state.surveys.links = surveys.meta.links;
             state.surveys.data = surveys.data;
         },
-        /*saveSurvey: (state, survey) => {
-            state.surveys = [...state.surveys, survey.data];
-        },
-        updateSurvey(state, survey) {
-            state.surveys = state.surveys.map((s) => {
-                if (s.id == survey.data.id) {
-                    return survey.data
-                }
-                return s;
-            });
-        },*/
-        logout: (state) => {
-            state.user.token = null;
-            state.user.data = {}
-            sessionStorage.removeItem('TOKEN');
-        },
-        setUser: (state, userData) => {
-            state.user.token = userData.token
-            state.user.name = userData.name
-            sessionStorage.setItem('TOKEN', userData.token);
-        },
         notify: (state, { type, message }) => {
             state.notification.show = true;
             state.notification.type = type;
@@ -215,7 +111,6 @@ const store = createStore({
             }, 3000);
         }
     },
->>>>>>> first commit, config proyect whit vue
     modules: {}
 })
 
