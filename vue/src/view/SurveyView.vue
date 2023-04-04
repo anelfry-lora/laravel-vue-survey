@@ -10,7 +10,7 @@
                 </div>
                 <div class="mt-5 flex lg:mt-0 lg:ml-4">
                     <button v-if="route.params.id" type="button" @click="deleteSurvey()"
-                        class="py-2 px-3 text-white bg-red-500 rounded-md hover:bg-red-700">
+                        class="py-1 px-3 items-center rounded-sm text-white bg-red-600 hover:bg-red-700">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             class="w-5 h-5 -mt-1 inline-flex">
                             <path fill-rule="evenodd"
@@ -22,14 +22,7 @@
                 </div>
             </div>
         </template>
-        <div v-if="surveyLoading" class="flex justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                class="animate-spin h-5 w-5 mr-3">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-            </svg>
-            Loading...
-        </div>
+        <Loading v-if="surveyLoading"/>
         <div v-else>
             <form @submit.prevent="saveSurvey" class="animate-fade-in-down">
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -73,7 +66,7 @@
                                 <textarea name="description" id="description" cols="30" rows="3" v-model="model.description"
                                     autocomplete="survey_description" placeholder="Describe your surveys"
                                     class="shadow-sm focus:ring-indigo-500 focus:boder-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">
-                                                    </textarea>
+                                </textarea>
                             </div>
                         </div>
                         <div>
@@ -117,9 +110,9 @@
                                 @addQuestion="addQuestion" @deleteQuestion="deleteQuestion" />
                         </div>
                     </div>
-                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 ">
                         <button type="summit"
-                            class="inline-flex justify-centel py-2 px-4 border border-trasparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2">
+                            class="inline-flex justify-centel shadow-sm font-medium py-2 px-4 items-center rounded-sm text-white bg-cyan-600 hover:bg-cyan-700">
                             Save
                         </button>
                     </div>
@@ -138,6 +131,7 @@ import store from "../store";
 import PageComponent from "../components/PageComponent.vue";
 import QuestionEditor from '../components/editor/QuestionEditor.vue';
 import { v4 as uuidv4 } from 'uuid';
+import Loading from "../components/Loading.vue";
 // import SurveysView from "./SurveysView.vue";
 
 const router = useRouter();

@@ -5,7 +5,7 @@
         <div v-html="survey.description" class="overflow-hidden flex-1"></div>
         <div class="flex justify-between itens-center mt-3">
             <router-link :to="{ name: 'SurveyView', params: { id: survey.id } }"
-                class="flex py-2 px-4 border border-transparent text-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-900 focus:righ-2focus-righ-indigo-500">
+                class="flex py-2 px-4 items-center rounded-sm text-white bg-indigo-600 hover:bg-indigo-700">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-5 h-5">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -14,6 +14,15 @@
             </router-link>
 
             <div class="flex items-center">
+                <router-link :to="{ name: 'AnswerView', params: { slug: survey.slug, title: survey.title } }"
+                    class="h-9 w-9 flex items-center justify-center rounded-full border border-transparent text-sm text-black-500 hover:text-cyan-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                        <path fill-rule="evenodd"
+                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </router-link>
                 <a :href="`/view/survey/${survey.slug}`" target="_blank"
                     class="h-9 w-9 flex items-center justify-center rounded-full border border-transparent text-sm text-black-500 hover:text-blue-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -23,7 +32,7 @@
                     </svg>
                 </a>
                 <button v-if="survey.id" type="button" @click="emit('delete', survey)"
-                    class="h-8 w-8 flex items-center justify-full rounded-md border border-transparent text-sm text-black-500 hover:text-red-500">
+                    class="h-9 w-9 flex items-center justify-center rounded-md border border-transparent text-sm text-black-500 hover:text-red-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round"

@@ -1,14 +1,8 @@
 <template>
     <PageComponent title="Dashboard">
-        <div v-if="loading" class="flex justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                class="animate-spin h-5 w-5 mr-3">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-            </svg>
-            Loading...
-        </div>
+        <Loading v-if="loading"/>
         <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 text-gray-700">
+
             <div class="p-3 bg-white text-gray-800 shadow-md text-center flex flex-col order-1 lg:order-2 animate-fade-in-down "
                 style="animation-delay: 0.1s">
                 <h3 class="text-2xl font-semibold">Total Surveys</h3>
@@ -16,6 +10,7 @@
                     {{ data.totalSurveys }}
                 </div>
             </div>
+
             <div class="p-3 bg-white text-gray-800 shadow-md text-center flex flex-col order-2 lg:order-4 animate-fade-in-down"
                 style="animation-delay: 0.2s">
                 <h3 class="text-2xl font-semibold">Total Answers</h3>
@@ -23,6 +18,7 @@
                     {{ data.totalAnswers }}
                 </div>
             </div>
+
             <div class="p-4 bg-white shadow-md row-span-2 order-3 lg:order-1 animate-fade-in-down">
                 <h3 class="text-2xl font-semibold">Latest Survey</h3>
                 <div v-if="data.latestSurvey">
@@ -51,8 +47,8 @@
                     </div>
                     <hr>
                     <div class="flex justify-between itens-center mt-3">
-                        <button
-                            class="flex py-2 px-4 border border-transparent text-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-900 focus:righ-2focus-righ-indigo-500">
+                        <router-link :to="{ name: 'AnswerView', params: { slug: data.latestSurvey.slug, title: data.latestSurvey.title } }"
+                            class="flex py-1 px-4 items-center rounded-sm text-white bg-cyan-600 hover:bg-cyan-700">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
                                 fill="currentColor">
                                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
@@ -61,7 +57,7 @@
                                     clip-rule="evenodd" />
                             </svg>
                             View Answers
-                        </button>
+                        </router-link>
                         <div class="flex items-center">
                             <!-- <a :href="`/view/survey/${data.latestSurvey.slug}`" target="_blank"
                                 class="h-9 w-9 flex items-center justify-center rounded-full border border-transparent text-sm text-black-500 hover:text-blue-500">
@@ -86,6 +82,7 @@
                     Your don't have surveys yet.
                 </div>
             </div>
+
             <div class="p-3 bg-white shadow-md row-span-2 order-4 lg:order-3 animate-fade-in-down"
                 style="animation-delay: 0.3s">
                 <div class="flex justify-between items-center mb-3 px-2">
@@ -109,6 +106,7 @@
                     Your don't have answers yet
                 </div>
             </div>
+
         </div>
     </PageComponent>
 </template>
@@ -117,6 +115,7 @@
 import PageComponent from '../components/PageComponent.vue';
 import { useStore } from 'vuex';
 import { computed } from 'vue';
+import Loading from '../components/Loading.vue';
 
 const store = useStore();
 

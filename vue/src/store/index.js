@@ -40,6 +40,11 @@ const store = createStore({
             links: [],
             data: []
         },
+        answers: {
+            loading: false,
+            links: [],
+            data: []
+        },
         questionTypes: ['text', 'select', 'radio', 'checkbox', 'textarea'],
         notification: {
             show: false,

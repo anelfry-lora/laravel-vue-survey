@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from '../view/DashboardView.vue'
 import Surveys from '../view/SurveysView.vue'
 import SurveyView from '../view/SurveyView.vue'
+import Answerview from '../view/AnswerView.vue'
 import SurveyPublicView from '../view/SurveyPublicView.vue'
 import Login from '../view/LoginView.vue'
 import Register from '../view/RegisterView.vue'
@@ -21,6 +22,7 @@ const routes = [
             { path: '/surveys', name: 'Surveys', component: Surveys },
             { path: '/surveys/create', name: 'SurveyCreate', component: SurveyView },
             { path: '/surveys/:id', name: 'SurveyView', component: SurveyView },
+            { path: '/answer/:slug', name: 'AnswerView', component: Answerview },
         ]
     },
     {

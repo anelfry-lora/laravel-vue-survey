@@ -1,6 +1,6 @@
 <template>
     <!-- DefaultLayout -->
-    <div class="min-h-full">
+    <div class="min-h-full ">
         <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 items-center justify-between">
@@ -83,7 +83,7 @@
                         {{ item.name }}
                     </router-link>
                 </div>
-                <div class="border-t border-gray-700 pt-4 pb-3">
+                <div class="border-t border-gray-700 pt-4 pb-3 ">
                     <div class="flex items-center px-5">
                         <div class="flex-shrink-0">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
