@@ -1,4 +1,9 @@
+
 # Survey Full Stack Application
+
+
+![Survey Full Stack Application.](https://github.com/anelfry-lora/laravel-vue-survey-/blob/master/preview.jpg?raw=true)
+
 
 Built with these technologies
 
