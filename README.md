@@ -30,8 +30,4 @@ Built with these technologies
 5. Open http://localhost:3000
 
 ## license
-<<<<<<< HEAD
 The project is open-sourced software licensed under the [MIT license](https://opensource.org/license/mit/).
-=======
-The project is open-sourced software licensed under the [MIT license](https://opensource.org/license/mit/).
->>>>>>> 7cbf07be61ced3431191724721ef8d84dc3bf1dc
